@@ -8,23 +8,26 @@ const io = require("socket.io")(http, {
 });
 
 // Express app
-app.get('/', function(req, res) {
-   res.send('works')
+app.get('/', function (req, res) {
+  res.send('works')
 });
 
 // Whenever someone connects
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
   console.log('A user connected');
 
-  io.emit('FromAPI', "lala");
-  // io.emit('FromAPI', "lala");
+  // io.emit('newMessage', "lala");
+  socket.on('ClientNewMessage', (data) => {
+    console.log(data);
+    socket.broadcast.emit('ServerNewMessage', data)
+  })
 
   // Whenever someone disconnects
   socket.on('disconnect', function () {
-     console.log('A user disconnected');
+    console.log('A user disconnected');
   });
 });
 
-http.listen(5000, function() {
-   console.log('listening on *:5000');
+http.listen(5000, function () {
+  console.log('listening on *:5000');
 });
