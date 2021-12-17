@@ -8,15 +8,18 @@ const ENDPOINT = "http://127.0.0.1:5000";
 
 export default function Home() {
 
-  useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-    socket.on("FromAPI", data => {
-      console.log(data)
-    });
-  }, []);
+  // Connecting to the socket 
+  // useEffect(() => {
+  //   const socket = socketIOClient(ENDPOINT);
+  //   socket.on("FromAPI", data => {
+  //     console.log(data)
+  //   });
+
+  //   return () => socket.disconnect();
+  // }, []);
 
   return (
-    <div className={styles.container}>
+    <div className="container2">
       <input type="text"/>
       <p>Chat</p>
     </div>
