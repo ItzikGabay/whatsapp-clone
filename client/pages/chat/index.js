@@ -7,8 +7,8 @@ export const chat = ({ ...props }) => {
 
    return (
        <div className="chat-container">
-       <Sidebar/>
-       <Window/>
+        <Sidebar/>
+        <Window/>
        </div>
    );
 };

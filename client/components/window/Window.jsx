@@ -12,6 +12,10 @@ export const Window = () => {
           <p>Name of group</p>
         </div>
       </div>
+      {/* End of navbar */}
+
+      f
+
     </div>
   );
 };
