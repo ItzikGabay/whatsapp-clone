@@ -16,6 +16,9 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
   console.log('A user connected');
 
+  io.emit('FromAPI', "lala");
+  // io.emit('FromAPI', "lala");
+
   // Whenever someone disconnects
   socket.on('disconnect', function () {
      console.log('A user disconnected');

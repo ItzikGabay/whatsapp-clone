@@ -4,7 +4,7 @@ export const Searchbar = () => {
   return (
     <div className="searchbar-container">
       <div className="searchbar-input-container">
-        <span class="material-icons-outlined">search</span>
+        <span className="material-icons-outlined">search</span>
         <input
           type="text"
           className="searchbar-input"

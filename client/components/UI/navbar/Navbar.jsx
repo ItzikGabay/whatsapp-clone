@@ -10,13 +10,13 @@ export const Navbar = ({ ...props }) => {
             Beta
           </p>
           <div>
-            <span class="material-icons-outlined">motion_photos_on</span>
+            <span className="material-icons-outlined">motion_photos_on</span>
           </div>
           <div>
-            <span class="material-icons">chat</span>
+            <span className="material-icons">chat</span>
           </div>
           <div>
-            <span class="material-icons">more_vert</span>
+            <span className="material-icons">more_vert</span>
           </div>
         </div>
       </div>

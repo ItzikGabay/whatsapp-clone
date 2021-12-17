@@ -1,6 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 
-export const Window = () => {
+export const Window = ({messages, setMessages}) => {
+
+  const clientMessages = messages.map(message => <p>{message}</p>);
+
+  const addMessage = (newMessage) => {
+    setMessages((prevMessages) => [...prevMessages, newMessage])
+  }
+
+  useEffect(() => {
+    console.log(messages);
+  }, [messages])
+
   return (
     <div className="window-container">
       <div className="navbar-right">
@@ -14,14 +25,16 @@ export const Window = () => {
       </div>
       {/* End of navbar */}
 
-      <div className="window-chat">1</div>
+      <div className="window-chat">
+        {clientMessages}
+      </div>
 
       <div className="window-bar">
         <div className="window-bar-container">
           <p>1</p>
           <p>2</p>
-          <input type="text" className="window-bar-input"/>
-          <p>Send</p>
+          <input type="text" className="window-bar-input" placeholder="Type a message"/>
+          <button onClick={()=> addMessage('chat')}>send</button>
         </div>
       </div>
     </div>
