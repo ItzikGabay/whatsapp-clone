@@ -1,0 +1,52 @@
+.contact-container {
+  background-color: #131C20;
+  height: 70px;
+  display: flex;
+
+  .contact-right {
+    margin: 0 10px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgb(70, 70, 70);
+
+    .contact-right-row2 p:first-child {
+      color: #9D9EA0;
+    }
+
+    .contact-right-row2 span {
+      color: 9D9EA0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    & p:not(:first-child) {
+      margin-top: 5px;
+      color: #9D9EA0;
+    }
+
+    & p {
+      margin-right: 10px;
+    }
+  }
+
+  .contact-left {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+  }
+
+  &:hover {
+    background-color: #323739;
+    cursor: pointer;
+  }
+}

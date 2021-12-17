@@ -1,4 +1,5 @@
 import React from 'react'
+import { Contact } from '../UI/contant/Contact'
 import { Searchbar } from '../UI/searchbar/Searchbar'
 
 export const Sidebar = () => {
@@ -23,6 +24,7 @@ export const Sidebar = () => {
       </div>
 
       <Searchbar/>
+      <Contact/>
     </div>
   )
 }

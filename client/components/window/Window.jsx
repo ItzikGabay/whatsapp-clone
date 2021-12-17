@@ -4,20 +4,17 @@ export const Window = ({ messages, setMessages, socket }) => {
   const [inputState, setInputState] = useState("");
   const messagesEndRef = useRef(null);
 
-  const [currentDate, setCurrentDate] = useState(1)
-
   function getTimeOfNow() {
     const today = new Date();
     const result = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-    setCurrentDate(result)
     return result;
   }
 
   // Getting each message as a paragraph tag
   const clientMessages = messages.map((message, idx) => (
     <div className="window-message" key={idx}>
-      <p>{message}</p>
-      <span>{currentDate}</span>
+      <p>{message.message}</p>
+      <span>{message.time}</span>
     </div>
   ));
 
@@ -25,17 +22,16 @@ export const Window = ({ messages, setMessages, socket }) => {
   const addMessage = (newMessage) => {
     setMessages((prevMessages) => [
       ...prevMessages,
-      "Your message: " + newMessage,
+        newMessage,
     ]);
     socket.emit("ClientNewMessage", newMessage);
     setInputState("");
-    getTimeOfNow()
   };
 
   // Whenever a new message is received by pressing "enter".
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      addMessage(inputState);
+      addMessage({time: getTimeOfNow(), message: inputState});
     }
   };
 
@@ -91,7 +87,9 @@ export const Window = ({ messages, setMessages, socket }) => {
             }}
             onKeyPress={handleKeyPress}
           />
-          <button onClick={(e) => addMessage(inputState)}>send</button>
+          {/* Future assigment: change to text area in order to have bigger size of input */}
+          {/* <textarea rows="2" cols="1" className="window-bar-input"></textarea> */}
+          <button onClick={(e) => addMessage({time: getTimeOfNow(), message: inputState})}>send</button>
         </div>
       </div>
     </div>

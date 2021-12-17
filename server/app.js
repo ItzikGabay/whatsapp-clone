@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
 // Whenever someone connects
 io.on('connection', function (socket) {
   console.log('A user connected');
-  socket.broadcast.emit('ServerNewMessage', 'Oh no.. someone connected..');
+  socket.broadcast.emit('ServerNewMessage', {time: 'system', message: 'Oh no.. someone connected..'});
 
   // io.emit('newMessage', "lala");
   socket.on('ClientNewMessage', (data) => {
@@ -26,7 +26,7 @@ io.on('connection', function (socket) {
   // Whenever someone disconnects
   socket.on('disconnect', function () {
     console.log('A user disconnected');
-    socket.broadcast.emit('ServerNewMessage', 'Yay! More privacy! someone disconnected!');
+    socket.broadcast.emit('ServerNewMessage', {time: 'system', message: 'Yay! More privacy! someone disconnected!'});
   });
 });
 
