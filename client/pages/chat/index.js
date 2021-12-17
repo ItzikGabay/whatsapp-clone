@@ -6,29 +6,10 @@ import { Window } from "../../components/window/Window";
 import socketIOClient from "socket.io-client";
 
 const ENDPOINT = "http://127.0.0.1:5000";
-const socket = socketIOClient(ENDPOINT);
-// const socket = socketIOClient(ENDPOINT); 
+const socket = socketIOClient(ENDPOINT);  
 
 export const chat = ({ ...props }) => {
-  const [messages, setMessages] = useState(["working", "working 2"]);
-
-  // useEffect(() => {
-  //   setSocket(newSocket);
-  //   return () => newSocket.close();
-  // }, []);
-
-  
-  // Connecting to the socket
-  useEffect(() => {
-
-    // socket.on("FromAPI", (data) => {
-    //   console.log(data);
-    // });
-
-    // socket.emit("newMessage");
-    console.log(messages);
-    // return () => socket.disconnect();
-  }, [messages]);
+  const [messages, setMessages] = useState([]);
 
   return (
     <div className="chat-container">

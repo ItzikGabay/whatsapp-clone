@@ -5,9 +5,9 @@ import Image from 'next/image'
 export default function Home() {
 
   return (
-    <div className="">
-      <input type="text"/>
-      <p>Chat</p>
+    <div className="home-container">
+      <p>Under maintenance!</p>
+      <p>Come back soon..</p>
     </div>
   )
 }

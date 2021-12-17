@@ -1,26 +1,48 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export const Window = ({ messages, setMessages, socket }) => {
-
   const [inputState, setInputState] = useState("");
 
+  const messagesEndRef = useRef(null)
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+  
   // Getting each message as a paragraph tag
-  const clientMessages = messages.map((message, idx) => <p key={idx}>{message}</p>);
+  const clientMessages = messages.map((message, idx) => (
+    <p className="window-message" key={idx}>
+      {message}
+    </p>
+  ));
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages]);
 
   // Handling whenever new messages are received
   const addMessage = (newMessage) => {
-    setMessages((prevMessages) => [...prevMessages, "ONLY YOU: " + newMessage]);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      "Your message: " + newMessage,
+    ]);
     socket.emit("ClientNewMessage", newMessage);
-    setInputState('');
+    setInputState("");
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      addMessage(inputState);
+    }
   };
 
   useEffect(() => {
     socket.on("ServerNewMessage", (newMessage) => {
       setMessages((prevMessages) => [...prevMessages, newMessage]);
-    })
+    });
 
     return () => socket.disconnect();
-  }, [])
+  }, []);
 
   return (
     <div className="window-container">
@@ -34,22 +56,29 @@ export const Window = ({ messages, setMessages, socket }) => {
         </div>
       </div>
 
-      <div className="window-chat">{clientMessages}</div>
+      <div className="window-chat">{clientMessages}
+      <div ref={messagesEndRef} />
+      </div>
 
       <div className="window-bar">
         <div className="window-bar-container">
-          <p>1</p>
-          <p>2</p>
+          <div>
+            <span class="material-icons-outlined">restore</span>
+          </div>
+          <div>
+            <span class="material-icons-outlined">change_history</span>
+          </div>
           <input
             type="text"
             className="window-bar-input"
             placeholder="Type a message"
             value={inputState}
-            onChange={(e) => {setInputState(e.target.value)}}
+            onChange={(e) => {
+              setInputState(e.target.value);
+            }}
+            onKeyPress={handleKeyPress}
           />
-          <button onClick={(e) => addMessage(inputState)}>
-            send
-          </button>
+          <button onClick={(e) => addMessage(inputState)}>send</button>
         </div>
       </div>
     </div>

@@ -1,0 +1,24 @@
+.home-container {
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  color: rgb(188, 188, 188);
+  font-size: 40px;
+
+  & > p {
+    font-size: 60px;
+    margin-top: 30vh;
+    font-weight: 500;
+  }
+
+  & > p:last-child {
+    font-size: 30px;
+    color: rgb(236, 236, 236);
+    font-weight: 300;
+  }
+}
