@@ -14,8 +14,16 @@ export const Window = () => {
       </div>
       {/* End of navbar */}
 
-      f
+      <div className="window-chat">1</div>
 
+      <div className="window-bar">
+        <div className="window-bar-container">
+          <p>1</p>
+          <p>2</p>
+          <input type="text" className="window-bar-input"/>
+          <p>Send</p>
+        </div>
+      </div>
     </div>
   );
 };
