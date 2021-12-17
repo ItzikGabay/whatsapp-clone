@@ -2,23 +2,24 @@ import React, { useEffect, useRef, useState } from "react";
 
 export const Window = ({ messages, setMessages, socket }) => {
   const [inputState, setInputState] = useState("");
+  const messagesEndRef = useRef(null);
 
-  const messagesEndRef = useRef(null)
+  const [currentDate, setCurrentDate] = useState(1)
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  function getTimeOfNow() {
+    const today = new Date();
+    const result = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    setCurrentDate(result)
+    return result;
   }
-  
+
   // Getting each message as a paragraph tag
   const clientMessages = messages.map((message, idx) => (
-    <p className="window-message" key={idx}>
-      {message}
-    </p>
+    <div className="window-message" key={idx}>
+      <p>{message}</p>
+      <span>{currentDate}</span>
+    </div>
   ));
-
-  useEffect(() => {
-    scrollToBottom()
-  }, [messages]);
 
   // Handling whenever new messages are received
   const addMessage = (newMessage) => {
@@ -28,13 +29,24 @@ export const Window = ({ messages, setMessages, socket }) => {
     ]);
     socket.emit("ClientNewMessage", newMessage);
     setInputState("");
+    getTimeOfNow()
   };
 
+  // Whenever a new message is received by pressing "enter".
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       addMessage(inputState);
     }
   };
+
+  // Scroll to bottom or more specific decelration - to a temp div.
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   useEffect(() => {
     socket.on("ServerNewMessage", (newMessage) => {
@@ -56,17 +68,18 @@ export const Window = ({ messages, setMessages, socket }) => {
         </div>
       </div>
 
-      <div className="window-chat">{clientMessages}
-      <div ref={messagesEndRef} />
+      <div className="window-chat">
+        {clientMessages}
+        <div ref={messagesEndRef} />
       </div>
 
       <div className="window-bar">
         <div className="window-bar-container">
           <div>
-            <span class="material-icons-outlined">restore</span>
+            <span className="material-icons-outlined">restore</span>
           </div>
           <div>
-            <span class="material-icons-outlined">change_history</span>
+            <span className="material-icons-outlined">change_history</span>
           </div>
           <input
             type="text"
