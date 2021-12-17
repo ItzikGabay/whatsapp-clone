@@ -3,6 +3,7 @@
   height: 70px;
   display: flex;
 
+
   .contact-right {
     margin: 0 10px 0 20px;
     display: flex;
@@ -13,6 +14,11 @@
 
     .contact-right-row2 p:first-child {
       color: #9D9EA0;
+      font-size: 13px;
+    }
+
+    .contact-right-row1 p:first-child {
+      font-size: 15px;
     }
 
     .contact-right-row2 span {

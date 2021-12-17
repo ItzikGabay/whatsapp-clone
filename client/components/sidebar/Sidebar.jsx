@@ -24,7 +24,26 @@ export const Sidebar = () => {
       </div>
 
       <Searchbar/>
-      <Contact/>
+      <div className="contacts-list">
+      <Contact name="Public group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      <Contact name="Private group"/>
+      </div>
     </div>
   )
 }

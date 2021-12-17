@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Contact = () => {
+export const Contact = ({name}) => {
   return (
     <div className="contact-container">
       <div className="contact-left">
@@ -11,7 +11,7 @@ export const Contact = () => {
       </div>
       <div className="contact-right">
         <div className="contact-right-row1">
-          <p>Public group</p>
+          <p>{name}</p>
           <p>Itzik its so gever</p>
         </div>
         <div className="contact-right-row2">
