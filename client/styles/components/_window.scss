@@ -55,7 +55,7 @@
 
     .window-message {
 
-      background-color: #056062;
+      background-color: #252D31;
       margin: 10px 10px;
       width: fit-content;
       border-radius: 8px;
@@ -71,6 +71,11 @@
         color: #A2BCBD;
         margin-right: 10px;
       }
+    }
+
+    .window-message + .active {
+      background-color: #056062;
+      margin-left: auto;
     }
   }
 

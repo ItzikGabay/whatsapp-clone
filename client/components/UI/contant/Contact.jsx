@@ -17,7 +17,7 @@ export const Contact = ({name}) => {
         <div className="contact-right-row2">
           <p>11/12/2025</p>
           <p>
-            <span class="material-icons-outlined">near_me</span>
+            <span className="material-icons-outlined">near_me</span>
           </p>
         </div>
       </div>

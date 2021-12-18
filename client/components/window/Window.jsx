@@ -12,17 +12,19 @@ export const Window = ({ messages, setMessages, socket }) => {
 
   // Getting each message as a paragraph tag
   const clientMessages = messages.map((message, idx) => (
-    <div className="window-message" key={idx}>
-      <p>{message.message}</p>
+    <div className={`window-message ${message.selfMessage ? "active" : ''}`} key={idx}>
+      <p>{message.selfMessage} {message.message}</p>
       <span>{message.time}</span>
     </div>
   ));
 
   // Handling whenever new messages are received
   const addMessage = (newMessage) => {
+
+    // Self add option
     setMessages((prevMessages) => [
       ...prevMessages,
-        newMessage,
+        {...newMessage, selfMessage: true},
     ]);
     socket.emit("ClientNewMessage", newMessage);
     setInputState("");
