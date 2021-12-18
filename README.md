@@ -6,7 +6,7 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h4 align="center">built on top of <a href="https://tripletview.herokuapp.com/" target="_blank">lerna as a monorepo with Nodejs, Express, Socket.io, and React & Nextjs with SCSS</a> by <a href="https://yelp-camp-live.herokuapp.com" target="_blank">@ItzikDevio</a></h4>
+<h4 align="center">built on top of lerna as a monorepo with Nodejs, Express, Socket.io, and React & Nextjs with SCSS by <a href="#">@ItzikDevio</a></h4>
 
 <p align="center">
   <a href="#">
