@@ -6,7 +6,7 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h4 align="center">built on top of <a href="https://tripletview.herokuapp.com/" target="_blank">lerna</a> by <a href="https://yelp-camp-live.herokuapp.com" target="_blank">@ItzikDevio</a></h4>
+<h4 align="center">built on top of <a href="https://tripletview.herokuapp.com/" target="_blank">lerna as a monorepo with Nodejs, Express, Socket.io, and React & Nextjs with SCSS</a> by <a href="https://yelp-camp-live.herokuapp.com" target="_blank">@ItzikDevio</a></h4>
 
 <p align="center">
   <a href="#">
@@ -17,4 +17,5 @@
   </a>
 </p>
 
-<!-- <img alt="Demo 1" src="https://github.com/ItzikGabay/ItzikGabay/blob/main/github-top-exp-1.gif?raw=true"> -->
+# Result after almost 12 hours of work:
+![-----------------------------------------------------](https://i.imgur.com/OIYkX8C.png)

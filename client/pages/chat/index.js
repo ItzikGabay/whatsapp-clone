@@ -9,7 +9,7 @@ const ENDPOINT = "http://127.0.0.1:5000";
 const socket = socketIOClient(ENDPOINT);  
 
 export const chat = ({ ...props }) => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{time: 'by itzik 😘', message: 'Thank you for using my app. you are connected 🥰.'}]);
 
   return (
     <div className="chat-container">

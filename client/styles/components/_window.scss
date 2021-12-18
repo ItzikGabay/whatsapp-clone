@@ -55,8 +55,13 @@
 
     .window-message {
 
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
       background-color: #252D31;
       margin: 10px 10px;
+      padding-bottom: 4px;
       width: fit-content;
       border-radius: 8px;
       font-size: 14px;
